@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
@@ -43,4 +44,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         return true
     }
+    fun goToCatalog(view: View?) {
+        val intent = Intent(this, CatalogActivity::class.java)
+        startActivity(intent)
+    }
+
 }

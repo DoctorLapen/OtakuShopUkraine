@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories">
+        <item>Манга</item>
+        <item>Кулони</item>
+        <item>Фігурки</item>
+        <item>Солодке</item>
+        <item>Амігурумі</item>
+    </string-array>
+</resources>
