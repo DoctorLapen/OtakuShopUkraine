@@ -9,6 +9,7 @@ class ProductCategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_category)
         if (savedInstanceState == null) {
+            title =  intent.getStringExtra(keyCategory)
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, ListFragment.newInstance(), ListFragment.TAG)
                 .commit();
