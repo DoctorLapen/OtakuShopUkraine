@@ -15,15 +15,15 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-        val user: User = intent.getParcelableExtra(EXTRA_USER_MODEL)
-        supportActionBar?.title = user.name
+        val product: Product = intent.getParcelableExtra(EXTRA_USER_MODEL)
+        supportActionBar?.title = product.name
 
         imageView = findViewById<ImageView>(R.id.image_view)
         textView = findViewById<TextView>(R.id.text_view)
 
 
-        imageView.setImageResource(user?.resId)
-        textView.setText("Showing information of "+ user?.name)
+        imageView.setImageResource(product?.imageId)
+        textView.setText("Showing information of "+ product?.name)
 
     }
 
@@ -31,9 +31,9 @@ class DetailsActivity : AppCompatActivity() {
         var TAG = DetailsActivity::class.java.simpleName
         const val EXTRA_USER_MODEL: String = "user"
 
-        fun newIntent(context: Context, user: User): Intent {
+        fun newIntent(context: Context, product: Product): Intent {
             var intent = Intent(context, DetailsActivity::class.java)
-            intent.putExtra(EXTRA_USER_MODEL, user)
+            intent.putExtra(EXTRA_USER_MODEL, product)
             return intent
         }
     }

@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ListAdapter: BaseRecyclerViewAdapter<User>() {
+class ListAdapter: BaseRecyclerViewAdapter<Product>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MyViewHolder(LayoutInflater.from(parent?.context).inflate(R.layout.list_item, parent, false))
@@ -15,21 +15,23 @@ class ListAdapter: BaseRecyclerViewAdapter<User>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         var myHolder = holder as? MyViewHolder
-        myHolder?.setUpView(user = getItem(position))
+        myHolder?.setUpView(product = getItem(position))
     }
 
     inner class MyViewHolder (view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
 
         private val imageView: ImageView = view.findViewById(R.id.image_view)
         private val textView: TextView = view.findViewById(R.id.text_view)
+        private val priceView: TextView = view.findViewById(R.id.Price_View)
 
         init {
             view.setOnClickListener(this)
         }
 
-        fun setUpView(user: User?) {
-            user?.resId?.let { imageView.setImageResource(it) }
-            textView.text = user?.name
+        fun setUpView(product: Product?) {
+            product?.imageId?.let { imageView.setImageResource(it) }
+            textView.text = product?.name
+            priceView.text = "${product?.price.toString()} грн."
         }
 
         override fun onClick(v: View?) {

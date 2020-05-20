@@ -71,16 +71,13 @@ class ListFragment: Fragment() {
     }
 
     private fun setUpDummyData(){
-        var list: ArrayList<User> = ArrayList<User>()
-        list.add(User("User 1", R.drawable.authorphoto))
-        list.add(User("User 2", R.drawable.authorphoto))
-        list.add(User("User 3", R.drawable.authorphoto))
-        list.add(User("User 4", R.drawable.authorphoto))
-        list.add(User("User 5", R.drawable.authorphoto))
-        list.add(User("User 6", R.drawable.authorphoto))
-        list.add(User("User 7", R.drawable.authorphoto))
-        list.add(User("User 8", R.drawable.authorphoto))
-        list.add(User("User 9", R.drawable.authorphoto))
+        var list: ArrayList<Product> = ArrayList<Product>()
+        list.add(Product("User 1", R.drawable.authorphoto,5.9f))
+        list.add(Product("User 2", R.drawable.authorphoto,56.7f))
+        list.add(Product("User 3", R.drawable.authorphoto,50.9f))
+        list.add(Product("User 4", R.drawable.authorphoto ,50100.9f))
+        list.add(Product("User 5", R.drawable.authorphoto ,50100.9f))
+        list.add(Product("User 6", R.drawable.authorphoto,50100.9f))
         adapter.addItems(list)
     }
 }
