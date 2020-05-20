@@ -8,7 +8,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/OtakuTheme">
-        <activity android:name=".CatalogActivity"  android:label="Каталог" />
+        <activity android:name=".LoginActivity" android:label="Авторизація" />
+        <activity
+            android:name=".CatalogActivity"
+            android:label="Каталог" />
         <activity
             android:name=".ApplicationInfoActivity"
             android:label="Про додаток" />

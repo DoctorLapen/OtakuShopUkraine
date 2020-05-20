@@ -33,20 +33,29 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val itemId = item.getItemId();
-        var newActivity:Class<*> = AuthorInfoActivity::class.java
+
         if (itemId === R.id.author_Info) {
-            newActivity = AuthorInfoActivity::class.java
+            goToActivity( AuthorInfoActivity::class.java)
         }
         else if (itemId === R.id.application_info) {
-            newActivity = ApplicationInfoActivity::class.java
+            goToActivity( ApplicationInfoActivity::class.java)
         }
-        val intent = Intent(this, newActivity)
-        startActivity(intent)
+
         return true
     }
-    fun goToCatalog(view: View?) {
-        val intent = Intent(this, CatalogActivity::class.java)
+    fun goToCatalog(view: View?)
+    {
+        goToActivity(CatalogActivity::class.java)
+    }
+    fun goToLogin(view: View?)
+    {
+        goToActivity(LoginActivity::class.java)
+    }
+
+    private fun goToActivity(activity:Class<*>) {
+        val intent = Intent(this, activity)
         startActivity(intent)
     }
+
 
 }

@@ -39,6 +39,7 @@
         android:backgroundTint="@color/colorOtakuPink"
 
         android:clickable="true"
+        android:onClick="goToLogin"
         app:fabSize="normal"
         app:srcCompat="@drawable/signupicon" />
 
