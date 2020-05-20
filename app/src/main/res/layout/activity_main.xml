@@ -5,16 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackgroundOtaku"
     android:windowActionBar="false"
     tools:context=".MainActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
+        style="@style/Toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Toolbar"
-        app:titleTextColor="@android:color/white"
-        android:background="?attr/colorPrimary"/>
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white" />
 
     <Button
         android:id="@+id/button"
@@ -43,4 +45,4 @@
         app:fabSize="normal"
         app:srcCompat="@drawable/signupicon" />
 
-</RelativeLayout >
+</RelativeLayout>
