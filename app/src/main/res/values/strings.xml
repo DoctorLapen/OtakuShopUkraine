@@ -2,4 +2,7 @@
     <string name="app_name">OtakuShopUkraine</string>
     <string name="auhtor_info_text">"Лапін Костянтин 'DoctorLapen' Едуардович  студент 4 курсу групи 1п-16 спеціальності 121'Інженерія програмного забезпечення' Черкаського державного бізнес-коледжу.Дуже обожнює аніме,розробку ігр на Unity Engene та високих білявок ( 170см або вище) "</string>
     <string name="testEmail">kostia1272@gmail.com</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

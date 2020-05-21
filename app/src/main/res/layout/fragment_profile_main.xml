@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileMainFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical" >
+
+
+
+            <TextView
+                android:id="@+id/hobbiTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Хоббі"
+                android:textColor="@color/colorDarkText"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/animeHobbi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Аніме"
+                android:textColor="@color/colorDarkText" />
+
+            <RadioButton
+                android:id="@+id/k_pop_Hobbi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="K-Pop"
+                android:textColor="@color/colorDarkText" />
+
+            <RadioButton
+                android:id="@+id/mangaHobbi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Манга"
+                android:textColor="@color/colorDarkText" />
+
+            <RadioButton
+                android:id="@+id/DoramsHobbi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Дорами"
+                android:textColor="@color/colorDarkText" />
+
+            <RadioButton
+                android:id="@+id/GanesHobbi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ігри"
+                android:textColor="@color/colorDarkText" />
+            <Button
+                android:id="@+id/editProfileButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorOtakuPink"
+                android:text="Редагувати"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/ShopButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorOtakuPink"
+
+                android:onClick="goToCatalog"
+                android:text="Перехід до крамниці"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/userExitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorOtakuPink"
+                android:onClick="Exit"
+                android:text="Вийти з облікового запису"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

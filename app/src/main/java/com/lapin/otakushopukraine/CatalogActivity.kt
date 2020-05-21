@@ -84,7 +84,7 @@ class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             }
         }
 
-        //drawerLayout.closeDrawer(GravityCompat.START)
+
         return true
     }
     private fun goToActivity(activity:Class<*>) {

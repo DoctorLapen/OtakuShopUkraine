@@ -4,141 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackgroundOtaku"
-    android:orientation="vertical"
-    tools:context=".ProfileActivity">
+    android:orientation="vertical">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundOtaku"
+        android:orientation="vertical"
+        tools:context=".ProfileActivity">
 
-        <LinearLayout
+
+        <ImageView
+            android:id="@+id/userPhoto"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/otaku_image" />
 
-            android:orientation="vertical" >
+        <TextView
+            android:id="@+id/userFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/colorDarkText"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/colorDarkText"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/EmailView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/DateTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Дата народження"
+            android:textColor="@color/colorDarkText"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/userDateOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 
-            <ImageView
-                android:id="@+id/userPhoto"
-                android:layout_width="match_parent"
-                android:scaleType="fitXY"
-                android:layout_height="300dp"
-                app:srcCompat="@drawable/otaku_image" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/userFullName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/colorDarkText"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:textColor="@color/colorDarkText"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/EmailView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/DateTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Дата народження"
-                android:textColor="@color/colorDarkText"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/userDateOfBirth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/hobbiTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Хоббі"
-                android:textColor="@color/colorDarkText"
-                android:textSize="18sp" />
-
-            <RadioButton
-                android:id="@+id/animeHobbi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Аніме"
-                android:textColor="@color/colorDarkText" />
-
-            <RadioButton
-                android:id="@+id/k_pop_Hobbi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="K-Pop"
-                android:textColor="@color/colorDarkText" />
-
-            <RadioButton
-                android:id="@+id/mangaHobbi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Манга"
-                android:textColor="@color/colorDarkText" />
-
-            <RadioButton
-                android:id="@+id/DoramsHobbi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Дорами"
-                android:textColor="@color/colorDarkText" />
-
-            <RadioButton
-                android:id="@+id/GanesHobbi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ігри"
-                android:textColor="@color/colorDarkText" />
-            <Button
-                android:id="@+id/editProfileButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorOtakuPink"
-                android:text="Редагувати"
-                android:textColor="#000000"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/ShopButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorOtakuPink"
-
-                android:onClick="goToCatalog"
-                android:text="Перехід до крамниці"
-                android:textColor="#000000"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/userExitButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorOtakuPink"
-                android:onClick="Exit"
-                android:text="Вийти з облікового запису"
-                android:textColor="#000000"
-                android:textSize="24sp" />
-        </LinearLayout>
-    </ScrollView>
-
+    </androidx.viewpager.widget.ViewPager>
 
 </LinearLayout>
