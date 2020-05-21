@@ -16,6 +16,7 @@
             android:label="Авторизація" />
         <activity
             android:name=".CatalogActivity"
+            android:theme="@style/SplashScreenTheme"
             android:label="Каталог" />
         <activity
             android:name=".ApplicationInfoActivity"
