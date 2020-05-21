@@ -3,26 +3,26 @@
 
     <group>
         <item
-            android:id="@+id/nav_profile"
-            android:title="Profile"/>
-        <item
-            android:id="@+id/nav_messages"
+            android:id="@+id/goToLogin"
 
-            android:title="Messages"/>
+            android:title="Вхід/Реєстрація"/>
         <item
-            android:id="@+id/nav_friends"
-            android:title="Friends"/>
+            android:id="@+id/goToProfile"
+            android:title="Особистий кабінет"/>
     </group>
 
 
-    <item android:title="Account Settings">
+    <item android:title="Інформація">
         <menu>
             <item
-                android:id="@+id/nav_update"
-                android:title="Update Profile"/>
+                android:id="@+id/nav_application"
+                android:title="Про додаток"/>
+            <item
+                android:id="@+id/nav_author"
+                android:title="Про автора"/>
             <item
                 android:id="@+id/nav_logout"
-                android:title="Sign Out"/>
+                android:title="Вихід"/>
         </menu>
     </item>
 </menu>

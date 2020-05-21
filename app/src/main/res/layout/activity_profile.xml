@@ -22,6 +22,7 @@
             <ImageView
                 android:id="@+id/userPhoto"
                 android:layout_width="match_parent"
+                android:scaleType="fitXY"
                 android:layout_height="300dp"
                 app:srcCompat="@drawable/otaku_image" />
 
