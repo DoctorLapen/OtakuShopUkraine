@@ -8,10 +8,7 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -24,6 +21,7 @@ class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     lateinit var toolbar: Toolbar
     lateinit var drawerLayout: DrawerLayout
     lateinit var navView: NavigationView
+    lateinit var nameHeader: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catalog)
@@ -48,11 +46,14 @@ class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
             }
         })
+
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
+        nameHeader =  navView.getHeaderView(0).findViewById(R.id.userNameHeader)
+        nameHeader.text = getString (R.string.testEmail);
 
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar, 0, 0
@@ -79,11 +80,11 @@ class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 goToActivity(AuthorInfoActivity::class.java)
             }
             R.id.nav_logout -> {
-
+                nameHeader.text=""
             }
         }
 
-        drawerLayout.closeDrawer(GravityCompat.START)
+        //drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
     private fun goToActivity(activity:Class<*>) {

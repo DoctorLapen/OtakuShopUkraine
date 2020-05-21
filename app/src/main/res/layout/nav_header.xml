@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="100dp"
     android:background="@color/colorOtakuPink"
-    android:gravity="bottom"
-    android:orientation="vertical"
-    android:paddingLeft="15dp"
-    android:paddingBottom="15dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/authorphoto" />
+>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Title"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
-
-    <TextView
+        android:layout_alignParentBottom="true"
+    android:id="@+id/userNameHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is our navigation drawer"
-        android:textColor="#FFFFFF" />
+        android:text=""
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorDarkText"
+        android:textSize="24sp" />
 
-</LinearLayout>
+</RelativeLayout>

@@ -11,6 +11,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var userNameView: TextView
     private lateinit var userAvatar: ImageView
     private lateinit var dateBirthView: TextView
+    private lateinit var userEmailView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,11 +20,13 @@ class ProfileActivity : AppCompatActivity() {
         userAvatar = findViewById<ImageView>(R.id.userPhoto)
         userNameView = findViewById<TextView>(R.id.userFullName)
         dateBirthView = findViewById<TextView>(R.id.userDateOfBirth)
+        userEmailView = findViewById(R.id.EmailView)
         //TestSets
         userAvatar.setImageResource(R.drawable.authorphoto)
         userNameView.setText("Лапін Костянтин Едуардович")
         val date = "28.02.2000"
         dateBirthView.text = date
+        userEmailView.text = getString (R.string.testEmail);
 
 
     }
