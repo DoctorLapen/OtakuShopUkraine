@@ -1,5 +1,6 @@
 package com.lapin.otakushopukraine
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -24,6 +25,11 @@ class LoginActivity : AppCompatActivity() {
             loginAction = "Вхід"
             setActionTexts(loginAction!!,"Увійти","У мене немає облікового запису")
         }
+    }
+    fun SignInOrUp(view: View?)
+    {
+        val intent = Intent(this,ProfileActivity::class.java)
+        startActivity(intent)
     }
     private fun setActionTexts(newTitle:String,newSubmitText:String,newChangeActionText:String)
     {

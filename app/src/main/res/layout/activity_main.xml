@@ -19,7 +19,7 @@
         app:titleTextColor="@android:color/white" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/ShopButton"
         android:layout_width="149dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
