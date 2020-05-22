@@ -105,7 +105,7 @@ class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         mMessageReference = FirebaseDatabase.getInstance().getReference("Categories")
         mMessageReference!!.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
-                  var child = dataSnapshot.getValue(String::class.java)
+                  var child = dataSnapshot.child("categoryName").getValue().toString()
                   categories.add(child!!)
                 adapter.notifyDataSetChanged()
             }
