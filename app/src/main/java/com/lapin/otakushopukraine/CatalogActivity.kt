@@ -4,8 +4,10 @@ package com.lapin.otakushopukraine
 
 
 import android.content.Intent
+import android.nfc.Tag
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
@@ -15,29 +17,35 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.database.*
 
 val keyCategory:String = "К"
 class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private var mDatabase: DatabaseReference? = null
+    private var mMessageReference: DatabaseReference? = null
     lateinit var toolbar: Toolbar
     lateinit var drawerLayout: DrawerLayout
     lateinit var navView: NavigationView
     lateinit var nameHeader: TextView
+    lateinit var countriesListView: ListView
+    lateinit var  adapter: ArrayAdapter<String>
+    private var categories:ArrayList<String> = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_catalog)
-        val countriesList: ListView = findViewById(R.id.categories) as ListView
+        setContentView(R.layout.activity_catalog);
+         countriesListView = findViewById(R.id.categories) as ListView
 
-        val categories = resources.getStringArray(R.array.categoriesName)
-        val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
+        adapter = ArrayAdapter<String>(
             this,
             android.R.layout.simple_list_item_1, categories
         )
         // устанавливаем для списка адаптер
         // устанавливаем для списка адаптер
-        countriesList.setAdapter(adapter)
+        countriesListView.setAdapter(adapter)
         // добвляем для списка слушатель
         // добвляем для списка слушатель
-        countriesList.setOnItemClickListener(object : AdapterView.OnItemClickListener {
+        countriesListView.setOnItemClickListener(object : AdapterView.OnItemClickListener {
            override fun onItemClick(parent: AdapterView<*>?, v: View?, position: Int, id: Long) {
                var item = categories[position]
                val intent = Intent(getApplicationContext(),ProductCategoryActivity::class.java)
@@ -46,6 +54,7 @@ class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
             }
         })
+        setUpFirebaseRealTime()
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -90,6 +99,42 @@ class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     private fun goToActivity(activity:Class<*>) {
         val intent = Intent(this, activity)
         startActivity(intent)
+    }
+    private fun setUpFirebaseRealTime(){
+        mDatabase = FirebaseDatabase.getInstance().reference
+        mMessageReference = FirebaseDatabase.getInstance().getReference("Categories")
+        mMessageReference!!.addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                  var child = dataSnapshot.getValue(String::class.java)
+                  categories.add(child!!)
+                adapter.notifyDataSetChanged()
+            }
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+            }
+
+            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
+
+            }
+
+
+
+            override fun onChildRemoved(p0: DataSnapshot) {
+
+            }
+
+
+            // This method is called once with the initial value and again
+
+
+
+        })
+
+
     }
 
 }

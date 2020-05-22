@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "289464563856",
+    "firebase_url": "https://otakushopukraine-e5ae9.firebaseio.com",
+    "project_id": "otakushopukraine-e5ae9",
+    "storage_bucket": "otakushopukraine-e5ae9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289464563856:android:776868490904477f76c015",
+        "android_client_info": {
+          "package_name": "com.lapin.otakushopukraine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289464563856-i7867ie0ptd6384e0he52dirsp1t8agi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lapin.otakushopukraine",
+            "certificate_hash": "9d28d1cf611a839b6cad90608ccc76b2334b07d5"
+          }
+        },
+        {
+          "client_id": "289464563856-ubpkksdpddl7odf9jf6atqrb11bdufau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh-CbWX4xoTrO-gWyO3W020aBzVCHMJG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289464563856-ubpkksdpddl7odf9jf6atqrb11bdufau.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
