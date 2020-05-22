@@ -6,9 +6,67 @@
     tools:context=".SecurityFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Зберігати дані картки?"
+                android:textColor="@color/colorDarkText"
+                android:textSize="18sp" />
+
+            <Switch
+                android:id="@+id/isSaveCardInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorDarkText"
+                android:textColor="@color/colorDarkText" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Старий пароль"
+                android:textColor="@color/colorDarkText"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/oldPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Новий пароль"
+                android:textColor="@color/colorDarkText"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/newPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/changePassword"
+                android:layout_width="182dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorOtakuPink"
+                android:text="Змінити"
+                android:textColor="@color/colorDarkText" />
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

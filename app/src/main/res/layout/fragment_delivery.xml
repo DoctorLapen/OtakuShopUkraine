@@ -6,9 +6,97 @@
     tools:context=".DeliveryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Служба доставки"
+                android:textColor="@color/colorDarkText"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="УкрПошта" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Нова пошта" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/cardNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="НомерКартки"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/City"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Місто"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/postBranch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Відділення"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Введіть місто"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editBranch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Введіть відділення"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Введіть  номер картки"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/deliveryButton"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorOtakuPink"
+                android:text="змінити"
+                android:textColor="@color/colorDarkText" />
+        </LinearLayout>
+    </ScrollView>
+
 
 </FrameLayout>

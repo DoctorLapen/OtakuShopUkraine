@@ -1,8 +1,10 @@
 package com.lapin.otakushopukraine
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -23,21 +25,19 @@ class ProfileActivity : AppCompatActivity() {
         title =  "Особистий кабінет"
         userAvatar = findViewById<ImageView>(R.id.userPhoto)
         userNameView = findViewById<TextView>(R.id.userFullName)
-        dateBirthView = findViewById<TextView>(R.id.userDateOfBirth)
-        userEmailView = findViewById(R.id.EmailView)
+        //dateBirthView = findViewById<TextView>(R.id.userDateOfBirth)
+      //  userEmailView = findViewById(R.id.EmailView)
         //TestSets
         userAvatar.setImageResource(R.drawable.authorphoto)
         userNameView.setText("Лапін Костянтин Едуардович")
-        val date = "28.02.2000"
-        dateBirthView.text = date
-        userEmailView.text = getString (R.string.testEmail);
+
         viewPager = findViewById<ViewPager>(R.id.viewPager)
         tabLayout = findViewById<TabLayout>(R.id.tabLayout)
 
 
-        tabLayout!!.addTab(tabLayout!!.newTab().setText("Home"))
-        tabLayout!!.addTab(tabLayout!!.newTab().setText("Sport"))
-        tabLayout!!.addTab(tabLayout!!.newTab().setText("Movie"))
+        tabLayout!!.addTab(tabLayout!!.newTab().setText("Головна"))
+        tabLayout!!.addTab(tabLayout!!.newTab().setText("Доставка і оплата"))
+        tabLayout!!.addTab(tabLayout!!.newTab().setText("Безпека"))
         tabLayout!!.tabGravity = TabLayout.GRAVITY_FILL
 
         val adapter = MyAdapter(this, supportFragmentManager, tabLayout!!.tabCount)
@@ -59,6 +59,8 @@ class ProfileActivity : AppCompatActivity() {
 
 
     }
+
+
 
 
 }
