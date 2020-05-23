@@ -2,13 +2,14 @@ package com.lapin.otakushopukraine
 
 
 import android.os.Bundle
-
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
 
 
 class ListFragment: Fragment() {
@@ -19,6 +20,8 @@ class ListFragment: Fragment() {
     protected lateinit var rootView: View
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: ListAdapter
+    var list: ArrayList<Product> = ArrayList<Product>()
+    private var mMessageReference: DatabaseReference? = null
 
     companion object {
         var TAG = ListFragment::class.java.simpleName
@@ -51,7 +54,6 @@ class ListFragment: Fragment() {
     private fun initView(){
         setUpAdapter()
         initializeRecyclerView()
-        setUpDummyData()
     }
 
     private fun setUpAdapter() {
@@ -70,73 +72,38 @@ class ListFragment: Fragment() {
     private fun initializeRecyclerView() {
         recyclerView = rootView.findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = adapter
+        val category = requireActivity().intent.getStringExtra(keyCategory)
+        setUpFirebaseRealTime(category)
     }
 
-    private fun setUpDummyData(){
 
 
-        val category = activity!!.intent.getStringExtra(keyCategory)
-        var list: ArrayList<Product> = getProducts(category)
+    private fun setUpFirebaseRealTime(categoryName:String)
+    {
+
+        mMessageReference = FirebaseDatabase.getInstance().getReference("Categories/Manga/products")
+        mMessageReference!!.addValueEventListener( object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                list.clear()
+                for (dataSnapshot1 in dataSnapshot.children)
+                {
+                    val download: DownloadProduct? = dataSnapshot1.getValue(DownloadProduct::class.java)
+                    val product = Product(download!!)
+                    list.add(product)
+                    Log.d("jlkjlk",download!!.toString())
+                }
+                recyclerView.adapter = adapter
+                adapter.addItems(list)
+                adapter.notifyDataSetChanged()
 
 
+            }
 
-        adapter.addItems(list)
-    }
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
 
-    private fun getProducts(categoryName:String): ArrayList<Product> {
-        var list: ArrayList<Product> = ArrayList<Product>()
-        var kylons: ArrayList<Product> = ArrayList<Product>()
-        var mangas: ArrayList<Product> = ArrayList<Product>()
-        kylons.add(
-            Product(
-                "кулон \"Pokemon\" модель 4",
-                R.drawable.kylon1,
-                180f,
-                "Тип : Кулон\n" + "Оригінал : \"Pokemon\"\n" + "Матеріал: Метал\n" + "Розмір: 4 см\n" + "Виробник: Guangzhou manufacture\n\n\n"
-            )
-        )
-        kylons.add(
-            Product(
-                "Кулон \"Stranger Things\" модель 1",
-                R.drawable.kylon2,
-                250f,
-                "Тип: Кулон\n" + "Оригінал: \"Stranger Things\"\n" + "Матеріал: Метал\n" + "Розмір: 4 см\n" + "Виробник: Guangzhou manufacture\n\n\n"
-            )
-        )
-        kylons.add(
-            Product(
-                "Подвійний кулон \"One-Punch Man\"",
-                R.drawable.kylon3,
-                137f,
-                "Тип : КулонОригінал : \"One-Punch Man\"" + " Матеріал: Метал Розмір: 4 см Виробник: Guangzhou manufacture\n" + "\n" + "\n"
-            )
-        )
-        mangas.add(Product(
-            "Манга «Дві зірки онмёджі» ",
-            R.drawable.manga,
-            109f,
-            "Серії манги: Дві зірки онмёджі\n" +
-                    "Томів: 20, випуск триває\n" +
-                    "Автор SUKENO Yoshiaki\n" +
-                    "Художник SUKENO Yoshiaki\n" +
-                    "Жанри бойовик драма комедія пригоди романтика надприродне сенен жахи фентезі школа\n" +
-                    "Виробництво: Україна\n" +
-                    "Мова російська\n" +
-                    "Дата релізу 2013\n" +
-                    "Кількість сторінок: 219\n" +
-                    "Вага: 210 гр.\n" +
-                    "опис:\n" +
-                    "З давніх часів доблесні оммёджі борються з поганою - злісними духами, народженими з людських страхів, болю і відчаю. Рокуро з дитинства мріяв стати найсильнішим оммёджі і очистити світ від скверни, але жахлива трагедія на довгі роки вбила в ньому будь-яке бажання боротися. Але кому є діло до бажань гіперактивного хлопчаки, коли від нього і талановитої дівчинки залежить доля всього світу?\n\n\n"
+            }})
 
-        ))
-        if(categoryName =="Кулони"){
-            list = kylons
-        }
-        else if(categoryName =="Манга"){
-            list = mangas
-        }
 
-        return list
     }
 }

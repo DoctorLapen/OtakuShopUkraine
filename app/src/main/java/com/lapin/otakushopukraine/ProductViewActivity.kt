@@ -27,7 +27,7 @@ class ProductViewActivity : AppCompatActivity() {
 
 
 
-        imageView.setImageResource(product?.imageId)
+
         textView.setText(product?.name)
         priceView.setText("${product?.price} грн.")
         descriptionView.setText(product?.description)

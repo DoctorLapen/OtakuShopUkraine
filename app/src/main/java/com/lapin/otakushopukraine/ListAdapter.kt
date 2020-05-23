@@ -29,7 +29,6 @@ class ListAdapter: BaseRecyclerViewAdapter<Product>() {
         }
 
         fun setUpView(product: Product?) {
-            product?.imageId?.let { imageView.setImageResource(it) }
             textView.text = product?.name
             priceView.text = "${product?.price.toString()} грн."
         }

@@ -3,15 +3,12 @@ package com.lapin.otakushopukraine
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Product(val name: String, val imageId:Int,val price:Float,val description:String?) : Parcelable {
-    constructor(parcel: Parcel) : this(
-        parcel.readString()!!,
-        parcel.readInt(),parcel.readFloat(), parcel.readString()!!
-    )
+data class Product(val name: String,val price:Float,val description:String?) : Parcelable {
+    constructor(parcel: Parcel) : this(parcel.readString()!!, parcel.readFloat(), parcel.readString()!!)
+    constructor(product: DownloadProduct) : this(product.name, product.price, product.description)
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)
-        parcel.writeInt(imageId)
         parcel.writeFloat(price)
         parcel.writeString(description)
     }
