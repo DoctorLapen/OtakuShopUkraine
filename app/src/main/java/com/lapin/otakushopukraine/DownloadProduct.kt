@@ -8,4 +8,5 @@ import com.google.firebase.database.IgnoreExtraProperties
      var name: String ="kljkhjgh"
      var price: Float = 789F
      var description:String? = ""
+     var imageUrl:String = ""
  }

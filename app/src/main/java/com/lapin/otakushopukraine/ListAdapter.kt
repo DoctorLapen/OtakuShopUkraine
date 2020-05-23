@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class ListAdapter: BaseRecyclerViewAdapter<Product>() {
 
@@ -31,6 +32,7 @@ class ListAdapter: BaseRecyclerViewAdapter<Product>() {
         fun setUpView(product: Product?) {
             textView.text = product?.name
             priceView.text = "${product?.price.toString()} грн."
+            Picasso.get().load(product?.imageUrl).into(imageView);
         }
 
         override fun onClick(v: View?) {

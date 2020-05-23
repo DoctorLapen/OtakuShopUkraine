@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 
 class ProductViewActivity : AppCompatActivity() {
 
@@ -31,6 +32,7 @@ class ProductViewActivity : AppCompatActivity() {
         textView.setText(product?.name)
         priceView.setText("${product?.price} грн.")
         descriptionView.setText(product?.description)
+        Picasso.get().load(product?.imageUrl).into(imageView);
 
     }
 
