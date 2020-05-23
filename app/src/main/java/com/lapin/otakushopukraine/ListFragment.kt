@@ -81,7 +81,7 @@ class ListFragment: Fragment() {
     private fun setUpFirebaseRealTime(categoryName:String)
     {
 
-        mMessageReference = FirebaseDatabase.getInstance().getReference("Categories/Manga/products")
+        mMessageReference = FirebaseDatabase.getInstance().getReference("Categories/${categoryName}/products")
         mMessageReference!!.addValueEventListener( object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 list.clear()

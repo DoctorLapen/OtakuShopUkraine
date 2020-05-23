@@ -31,6 +31,7 @@ class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     lateinit var countriesListView: ListView
     lateinit var  adapter: ArrayAdapter<String>
     private var categories:ArrayList<String> = ArrayList<String>()
+    private var categoriesMap:MutableMap<String,String> = mutableMapOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catalog);
@@ -47,7 +48,7 @@ class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         // добвляем для списка слушатель
         countriesListView.setOnItemClickListener(object : AdapterView.OnItemClickListener {
            override fun onItemClick(parent: AdapterView<*>?, v: View?, position: Int, id: Long) {
-               var item = categories[position]
+               var item = categoriesMap[categories[position]]
                val intent = Intent(getApplicationContext(),ProductCategoryActivity::class.java)
                intent.putExtra(keyCategory, item);
                startActivity(intent)
@@ -105,8 +106,10 @@ class CatalogActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         mMessageReference = FirebaseDatabase.getInstance().getReference("Categories")
         mMessageReference!!.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                  var value = dataSnapshot.getKey()
                   var child = dataSnapshot.child("categoryName").getValue().toString()
                   categories.add(child!!)
+                categoriesMap.put(child!! ,value!!)
                 adapter.notifyDataSetChanged()
             }
             override fun onCancelled(error: DatabaseError) {
